@@ -181,9 +181,8 @@ void Arvore::PalavrasPrefixo(std::string prefixo){
 
 void Arvore::TodasChaves(No *aux){
     for(int i = 0; i < N; i++){
-        if(aux->alfabeto[i]){
+        if(aux->alfabeto[i])
             TodasChaves(aux->alfabeto[i]);
-        }
         if(aux->noExterno){
             std::cout << "\t" << aux->chave << std::endl;
             return;
