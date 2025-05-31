@@ -167,12 +167,12 @@ void Arvore::PalavrasPrefixo(std::string prefixo){
         aux = aux->alfabeto[prefixo[i++] - 'a'];
     }
 
-	if(aux && aux->noExterno && prefixo != aux->chave)
+	if(aux && aux->noExterno && prefixo != aux->chave.substr(0, prefixo.size()))
 		aux = aux->alfabeto[prefixo[i++] - 'a'];
 
     // Se o prefixo não estiver no caminho da arvore, avise o usuario
     if(!aux)
-        std::cout << "Palavras com prefixo " << prefixo << " nao encontradas. Tente outro prefixo." << std::endl;
+        std::cout << "\n\tPalavras com prefixo " << prefixo << " nao encontradas. Tente outro prefixo." << std::endl;
     else{ // Recursivo: imprime as chaves com o prefixo
         std::cout << "\n\tForam encontradas as seguintes palavras com o prefixo " << prefixo << ":\n";
         TodasChaves(aux);
@@ -181,10 +181,10 @@ void Arvore::PalavrasPrefixo(std::string prefixo){
 
 void Arvore::TodasChaves(No *aux){
     for(int i = 0; i < N; i++){
-        if(aux->alfabeto[i] != nullptr){
+        if(aux->alfabeto[i]){
             TodasChaves(aux->alfabeto[i]);
         }
-        if(aux->noExterno == true){
+        if(aux->noExterno){
             std::cout << "\t" << aux->chave << std::endl;
             return;
         }
