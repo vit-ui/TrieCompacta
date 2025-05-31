@@ -1,5 +1,10 @@
 /.vs
 /.vscode
+/TrieCompacta
+/x64
+/x86
+/Debug
+/Release
 /TrieCompacta.sln
 /TrieCompacta.vcxproj
 /TrieCompacta.vcxproj.filters
